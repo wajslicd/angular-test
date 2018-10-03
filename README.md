@@ -1,2 +1,2 @@
 # angular-test
-Test repo for Coursera AngularJS module
+Test repo for Coursera AngularJS module assignments
