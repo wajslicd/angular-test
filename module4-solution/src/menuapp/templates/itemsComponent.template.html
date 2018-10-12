@@ -1,5 +1,26 @@
+<div class="table-responsive">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Short Name</th>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Price</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="item in $ctrl.items">
+        <td>{{item.short_name}}</td>
+        <td>{{item.name}}</td>
+        <td>{{item.description}}</td>
+        <td>{{item.price_large}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
 <ul>
-  <li ng-repeat="item in $ctrl.items">
+
+  <!-- <li ng-repeat="item in $ctrl.items">
     {{item.name}}
   </li>
-</ul>
+</ul> -->
