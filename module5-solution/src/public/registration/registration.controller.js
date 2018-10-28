@@ -10,7 +10,7 @@
     // var user = {};
 
     $ctrl.savedMessage = "Your information has been saved";
-    $ctrl.completed = false;
+    // $ctrl.completed = false;
 
     $ctrl.user = {
       firstname: "",
