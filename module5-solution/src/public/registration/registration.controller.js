@@ -31,6 +31,10 @@
       $ctrl.completed = true;
     };
 
+    $ctrl.update = function () {
+      $ctrl.completed = false;
+    };
+
     $ctrl.verifyFavourite = function (favourite) {
         return MenuService.getMenuItem(favourite)
         .then(function (response) {
