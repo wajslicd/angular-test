@@ -1,0 +1,113 @@
+
+<div class="container">
+  <fieldset>
+    <legend>Registration</legend>
+    <form name="signUp" class="form-horizontal" novalidate>
+      <div class="form-group">
+        <div class="col-md-5">
+          <input type="text" name="firstname" class="form-control input-lg"
+            placeholder="Enter your first name"  autofocus
+            ng-model="regCtrl.user.firstname"
+            required
+            ng-maxlength="10"
+            ng-Change="regCtrl.update()">
+        </div>
+        <div class="col-md-7">
+          <span class="form-control-static"
+            ng-if="signUp.firstname.$error.required && signUp.firstname.$touched">
+            *First name is required
+          </span>
+          <span class="form-control-static"
+            ng-if="signUp.firstname.$error.maxlength && signUp.firstname.$touched">
+            *First name must not be longer than 10 characters
+          </span>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div class="col-md-5">
+          <input type="text" name="lastname" class="form-control input-lg"
+            placeholder="Enter your last name"
+            ng-model="regCtrl.user.lastname"
+            required
+            ng-maxlength="20"
+            ng-Change="regCtrl.update()">
+        </div>
+        <div class="col-md-7">
+          <span class="form-control-static"
+            ng-if="signUp.lastname.$error.required && signUp.lastname.$touched">
+            *Last name is required
+          </span>
+          <span class="form-control-static"
+            ng-if="signUp.lastname.$error.maxlength && signUp.lastname.$touched">
+            *Last name must not be longer than 20 characters
+          </span>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div class="col-md-5">
+          <input type="email" name="email" class="form-control input-lg"
+            placeholder="Email"
+            ng-model="regCtrl.user.email"
+            required
+            ng-Change="regCtrl.update()">
+        </div>
+        <div class="col-md-7">
+          <span class="form-control-static"
+            ng-if="signUp.email.$invalid && signUp.email.$touched">
+            *Must be a valid email address: handle@domain format
+          </span>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div class="col-md-5">
+          <input type="text" name="phone" class="form-control input-lg"
+            placeholder="Phone ####-###-###"
+            ng-model="regCtrl.user.phone"
+            pattern="(\d{4})-(\d{3})-(\d{3})"
+            ng-Change="regCtrl.update()">
+        </div>
+        <div class="col-md-7">
+          <span class="form-control-static"
+            ng-if="signUp.phone.$invalid && signUp.phone.$touched">
+            *Phone must have format ####-###-###
+          </span>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div class="col-md-5">
+          <input type="text" name="favourite" class="form-control input-lg"
+            placeholder="Enter menu number of favourite dish"
+            ng-model="regCtrl.user.favourite"
+            required
+            validate-favourite
+            ng-Change="regCtrl.update()">
+        </div>
+        <div class="col-md-7">
+          <span class="form-control-static"
+            ng-if="signUp.favourite.$error.required && signUp.favourite.$touched">
+            *Favourite dish is required
+          </span>
+          <span class="form-control-static"
+            ng-if="signUp.favourite.$error.favourite && signUp.favourite.$touched">
+            *No such menu number exists
+          </span>
+        </div>
+      </div>
+
+      <button name="submit" class="btn btn-default"
+        ng-disabled="signUp.$invalid || regCtrl.completed || signUp.$pending"
+        ng-click="regCtrl.submit()">Submit</button>
+
+    </form>
+  </fieldset>
+
+  <br>
+  <div class="saved" ng-if="regCtrl.completed">
+    {{regCtrl.savedMessage}}
+  </div>
+
+</div>

@@ -1,0 +1,15 @@
+<div class="container">
+  <div ng-if="regInfoCtrl.user.favourite" class="signedUp">
+    <h2 id="registration-info-title">Registered Information</h2>
+
+    <user-info user="regInfoCtrl.user"></user-info>
+    <menu-item menu-item="regInfoCtrl.user.item"></menu-item>
+
+  </div>
+
+  <div ng-if="!regInfoCtrl.user.favourite" class="notSignedUp">
+    Not Signed Up Yet.
+    <a ui-sref="public.signup">Sign up Now!</a>
+  </div>
+
+</div>
